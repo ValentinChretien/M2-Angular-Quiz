@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+/* Variables de couleurs pour un thème The Witcher */
+$primary-color: #1c1c1c;  // Couleur de fond sombre
+$secondary-color: #333;   // Couleur secondaire légèrement plus claire
+$accent-color: #a00;      // Accent rouge sang
+$text-color: #f0f0f0;     // Couleur du texte blanche cassée
+$border-color: #444;      // Couleur des bordures métalliques
+$hover-color: #555;       // Couleur au survol
+$correct-color: #5cdb5c;  // Couleur pour une bonne réponse
+$incorrect-color: #db5c5c; // Couleur pour une mauvaise réponse
+$button-bg: #333; // Couleur de fond des boutons
+$button-border: #555; // Couleur des bordures des boutons
+$button-hover-bg: #444; // Fond des boutons au survol
+$button-active-bg: #666; // Fond des boutons lorsqu'ils sont enfoncés
+$button-text-color: #ddd; // Couleur du texte sur les boutons
+$button-hover-text: #fff; // Couleur du texte au survol
+
+/* Fontes inspirées de The Witcher */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+$font-family: 'MedievalSharp', sans-serif;
+
+/* Style général */
+body {
+  background-color: $primary-color;
+  color: $text-color;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal du quiz */
+.quiz-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: $secondary-color;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+/* Style des questions */
+.home_question-list {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid $border-color;
+}
+
+/* Style des réponses */
+.home_answer-liste {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .home_answer {
+    margin-bottom: 15px;
+    
+    button {
+        background-color: $button-bg;
+        color: $button-text-color;
+        border: 2px solid $button-border;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-family: 'MedievalSharp', sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Effet au survol */
+        &:hover {
+            background-color: $button-hover-bg;
+            color: $button-hover-text;
+            transform: scale(1.05);
+        }
+
+        /* Effet au clic */
+        &:active {
+            background-color: $button-active-bg;
+            transform: scale(0.98);
+        }
+
+        /* Style désactivé */
+        &:disabled {
+            background-color: $button-border;
+            color: $text-color;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    }
+  }
+}
+
+/* Styles pour les réponses correctes et incorrectes */
+button.correct {
+  background-color: $correct-color;
+  color: #fff;
+}
+
+button.incorrect {
+  background-color: $incorrect-color;
+  color: #fff;
+}
+
+/* Effet spécial pour le score */
+.score-display {
+  font-size: 2em;
+  margin-top: 20px;
+  text-align: center;
+  color: $accent-color;
+}

@@ -1,0 +1,23 @@
+<button (click)="debugQuiz()">DEBUG</button>
+<section class="quiz"><div *ngFor="let item of quiz | keyvalue">
+    <section class="home_question-list">
+        {{item.value.question}}
+    </section>
+    <section class="home_choice-liste">
+        <ul class="home_choice-element">
+            <li *ngFor="let choice of item.value.choices | keyvalue">
+                <button (click)="handleAnswer(item.key, choice.key)">
+                    {{choice.key}}: {{choice.value}}
+                </button>
+            </li>
+        </ul>
+    </section>
+</div>
+</section>
+<section class="score">
+<button (click)="handleShowScore()">Terminer le Quiz</button>
+<!-- <div *ngIf="doShowScore">
+    Score final: {{score}}/{{answeredQuestion}}
+</div> -->
+</section>
+
